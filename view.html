@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking List | SkyFly Airlines</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        ✈ SkyFly Airlines
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Home</a></li>
+            <li><a href="booking.html">Book Flight</a></li>
+            <li><a href="view.html" class="active">Booking List</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<section class="table-section">
+
+    <h1>Booking List</h1>
+
+    <p class="subtitle">
+        View all flight bookings made through SkyFly Airlines.
+    </p>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Booking ID</th>
+                <th>Passenger Name</th>
+                <th>IC Number</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Destination</th>
+                <th>Seat Class</th>
+                <th>Departure Date</th>
+                <th>Tickets</th>
+                <th>Total Payment</th>
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="bookingTable">
+
+        </tbody>
+
+    </table>
+
+    <div class="button-area">
+
+        <a href="booking.html">
+            <button>Add New Booking</button>
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>© 2026 SkyFly Airlines. All Rights Reserved.</p>
+
+</footer>
+
+<script>
+
+let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+let table = document.getElementById("bookingTable");
+
+if(bookings.length === 0)
+{
+    table.innerHTML = `
+        <tr>
+            <td colspan="11">No booking available.</td>
+        </tr>
+    `;
+}
+else
+{
+    bookings.forEach(function(booking, index){
+
+        table.innerHTML += `
+
+        <tr>
+
+            <td>${booking.bookingID}</td>
+
+            <td>${booking.passenger}</td>
+
+            <td>${booking.ic}</td>
+
+            <td>${booking.phone}</td>
+
+            <td>${booking.gender}</td>
+
+            <td>${booking.destination}</td>
+
+            <td>${booking.seat}</td>
+
+            <td>${booking.date}</td>
+
+            <td>${booking.ticket}</td>
+
+            <td>${booking.total}</td>
+
+            <td>
+
+                <button
+                    class="cancel-btn"
+                    onclick="cancelBooking(${index})">
+
+                    Cancel
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+}
+
+</script>
+
+</body>
+
+</html>

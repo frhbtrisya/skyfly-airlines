@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Flight | SkyFly Airlines</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        ✈ SkyFly Airlines
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Home</a></li>
+            <li><a href="booking.html">Book Flight</a></li>
+            <li><a href="view.html">Booking List</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<section class="booking">
+
+    <h1>Flight Booking Form</h1>
+
+    <p class="subtitle">
+        Complete the form below to book your flight with SkyFly Airlines.
+    </p>
+
+    <form id="bookingForm">
+
+        <label>Passenger Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+
+        <label>IC Number</label>
+        <input type="text" id="ic" placeholder="Enter IC Number" required>
+
+        <label>Phone Number</label>
+        <input type="text" id="phone" placeholder="Enter Phone Number" required>
+
+        <label>Gender</label>
+
+        <select id="gender">
+
+            <option>Male</option>
+            <option>Female</option>
+
+        </select>
+
+        <label>Destination</label>
+
+        <select id="destination">
+
+            <option>Kuala Lumpur</option>
+            <option>Johor</option>
+            <option>Kedah</option>
+            <option>Kelantan</option>
+            <option>Melaka</option>
+            <option>Pahang</option>
+            <option>Perak</option>
+            <option>Pulau Pinang</option>
+            <option>Sabah</option>
+            <option>Sarawak</option>
+            <option>Terengganu</option>
+            <option>Labuan</option>
+
+        </select>
+
+        <label>Seat Class</label>
+
+        <select id="seat">
+
+            <option>Economy</option>
+            <option>Business</option>
+            <option>First Class</option>
+
+        </select>
+
+        <label>Departure Date</label>
+
+        <input type="date" id="date">
+
+        <label>Number of Tickets</label>
+
+        <input
+            type="number"
+            id="ticket"
+            min="1"
+            value="1">
+
+        <div class="button-group">
+
+            <button
+                type="button"
+                class="calculate-btn"
+                onclick="calculateBooking()">
+
+                Calculate
+
+            </button>
+
+            <button
+                type="button"
+                class="reset-btn"
+                onclick="resetBooking()">
+
+                Reset
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <div class="summary">
+
+        <h2>Booking Summary</h2>
+
+        <table>
+
+            <tr>
+
+                <td>Ticket Price</td>
+
+                <td id="ticketPrice">
+                    RM0.00
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>Subtotal</td>
+
+                <td id="subtotal">
+                    RM0.00
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>SST (8%)</td>
+
+                <td id="tax">
+                    RM0.00
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td><strong>Grand Total</strong></td>
+
+                <td id="grandTotal">
+                    <strong>RM0.00</strong>
+                </td>
+
+            </tr>
+
+        </table>
+
+        <button
+            type="button"
+            class="confirm-btn"
+            onclick="confirmBooking()">
+
+            ✈ Confirm Booking
+
+        </button>
+
+    </div>
+
+</section>
+
+<footer>
+
+    ©2026 SkyFly Airlines. All Rights Reserved.
+
+</footer>
+
+</body>
+
+</html>
